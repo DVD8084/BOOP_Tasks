@@ -11,7 +11,7 @@ using std::cout;
  * This implementation uses arrays.
  */
 
-/* Stack based on linked lists. */
+/* Stack based on arrays. */
 template <typename T>
 class StackA
 {
@@ -28,7 +28,7 @@ public:
     {
         for (int i = 0; i < stack_size; i++)
         {
-            cout << stack[i];
+            print_data(stack[i]);
             if (i < stack_size - 1)
             {
                 cout << " <- ";
@@ -66,16 +66,25 @@ public:
     {
         if (stack_size)
         {
-            return stack[stack_size--];
+            return stack[--stack_size];
         }
         else
         {
             return stack[0];
         }
     }
+    void fill_random(int size)
+    {
+        stack_size = 0;
+        while(stack_size < size && size < MAX_ARRAY_SIZE)
+        {
+            stack[stack_size] = get_random(stack[0]);
+            ++stack_size;
+        }
+    }
 };
 
-/* Queue based on linked lists. */
+/* Queue based on arrays. */
 template <typename T>
 class QueueA
 {
@@ -92,7 +101,7 @@ public:
     {
         for (int i = 0; i < queue_size; i++)
         {
-            cout << queue[(queue_start + i) % MAX_ARRAY_SIZE];
+            print_data(queue[(queue_start + i) % MAX_ARRAY_SIZE]);
             if (i < queue_size - 1)
             {
                 cout << " <- ";
@@ -131,9 +140,19 @@ public:
         }
         return popped;
     }
+    void fill_random(int size)
+    {
+        queue_start = 0;
+        queue_size = 0;
+        while(queue_size < size && size < MAX_ARRAY_SIZE)
+        {
+            queue[queue_size] = get_random(queue[0]);
+            ++queue_size;
+        }
+    }
 };
 
-/* Deque (double-ended queue) based on linked lists. */
+/* Deque (double-ended queue) based on arrays. */
 template <typename T>
 class DequeA
 {
@@ -150,7 +169,7 @@ public:
     {
         for (int i = 0; i < deque_size; i++)
         {
-            cout << deque[(deque_start + i) % MAX_ARRAY_SIZE];
+            print_data(deque[(deque_start + i) % MAX_ARRAY_SIZE]);
             if (i < deque_size - 1)
             {
                 cout << " <-> ";
@@ -165,7 +184,7 @@ public:
     {
         for (int i = deque_size - 1; i >= 0; i--)
         {
-            cout << deque[(deque_start + i) % MAX_ARRAY_SIZE];
+            print_data(deque[(deque_start + i) % MAX_ARRAY_SIZE]);
             if (i > 0)
             {
                 cout << " <-> ";
@@ -240,6 +259,16 @@ public:
         else
         {
             return deque[deque_start];
+        }
+    }
+    void fill_random(int size)
+    {
+        deque_size = 0;
+        deque_size = 0;
+        while(deque_size < size && size < MAX_ARRAY_SIZE)
+        {
+            deque[deque_size] = get_random(deque[0]);
+            ++deque_size;
         }
     }
 };

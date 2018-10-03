@@ -50,7 +50,7 @@ class DoubleNode
         this->next = nullptr;
         this->prev = nullptr;
     }
-    DoubleNode(T data, DoubleNode *next)
+    DoubleNode(T data, DoubleNode* next)
     {
         this->data = data;
         this->next = next;
@@ -126,7 +126,7 @@ public:
         Node<T>* current = this -> start;
         while (current)
         {
-            cout << current -> data;
+            print_data(current -> data);
             if (current -> next)
             {
                 cout << " -> ";
@@ -156,6 +156,19 @@ public:
         delete old;
         return popped;
     }
+    void fill_random(int size)
+    {
+        delete this -> start;
+        T type;
+        this -> start = new Node<T>(get_random(type));
+        Node<T>* current = this -> start;
+        for (int i = 0; i < size - 1; i++)
+        {
+            Node<T>* new_node = new Node<T>(get_random(type));
+            current -> next = new_node;
+            current = new_node;
+        }
+    }
 };
 
 /* Queue based on linked lists. */
@@ -174,7 +187,7 @@ public:
         Node<T>* current = this -> start;
         while (current)
         {
-            cout << current -> data;
+            print_data(current -> data);
             if (current -> next)
             {
                 cout << " <- ";
@@ -205,6 +218,20 @@ public:
         delete old;
         return popped;
     }
+    void fill_random(int size)
+    {
+        delete this -> start;
+        T type;
+        this -> start = new Node<T>(get_random(type));
+        Node<T>* current = this -> start;
+        for (int i = 0; i < size - 1; i++)
+        {
+            Node<T>* new_node = new Node<T>(get_random(type));
+            current -> next = new_node;
+            current = new_node;
+        }
+        this -> end = current;
+    }
 };
 
 /* Deque (double-ended queue) based on linked lists. */
@@ -220,7 +247,7 @@ public:
         DoubleNode<T>* current = this -> start;
         while (current)
         {
-            cout << current -> data;
+            print_data(current -> data);
             if (current -> next)
             {
                 cout << " <-> ";
@@ -237,7 +264,7 @@ public:
         DoubleNode<T>* current = this -> end;
         while (current)
         {
-            cout << current -> data;
+            print_data(current -> data);
             if (current -> prev)
             {
                 cout << " <-> ";
@@ -302,5 +329,19 @@ public:
         }
         delete old;
         return popped;
+    }
+    void fill_random(int size)
+    {
+        delete this -> start;
+        T type;
+        this -> start = new DoubleNode<T>(get_random(type));
+        DoubleNode<T>* current = this -> start;
+        for (int i = 0; i < size - 1; i++)
+        {
+            DoubleNode<T>* new_node = new DoubleNode<T>(get_random(type), nullptr, current);
+            current -> next = new_node;
+            current = new_node;
+        }
+        this -> end = current;
     }
 };
