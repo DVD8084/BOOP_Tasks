@@ -13,6 +13,7 @@
 
 #include <cstdlib>
 #include <iostream>
+#include "empty.cpp"
 #include "random.cpp"
 #include "print.cpp"
 #include "lists.cpp"
@@ -32,11 +33,11 @@ int main(int argc, char** argv)
     /*
     cout << "Creating...\n";
     char type;
-    StackA<char> test_obj(get_random(type));
-    test_obj.print();
-    for (int i = 0; i < 4; i++) {
+    StackL<char> test_obj;
+    for (int i = 0; i < 5; i++) {
         cout << "Adding next element...\n";
-        test_obj.push(get_random(type));
+        set_random(type);
+        test_obj.push(type);
         cout << "Current structure: ";
         test_obj.print();
     }
@@ -64,11 +65,12 @@ int main(int argc, char** argv)
     /*
     cout << "Creating...\n";
     double type;
-    DequeA<double> test_obj2(get_random(type));
+    DequeL<double> test_obj2;
     test_obj2.print();
     for (int i = 0; i < 3; i++) {
         cout << "Adding next element (start)...\n";
-        test_obj2.push_start(get_random(type));
+        set_random(type);
+        test_obj2.push_start(type);
         cout << "Current structure: ";
         test_obj2.print();
         cout << "Current structure (reversed): ";
@@ -76,7 +78,8 @@ int main(int argc, char** argv)
     }
     for (int i = 0; i < 3; i++) {
         cout << "Adding next element (end)...\n";
-        test_obj2.push_end(get_random(type));
+        set_random(type);
+        test_obj2.push_end(type);
         cout << "Current structure: ";
         test_obj2.print();
         cout << "Current structure (reversed): ";

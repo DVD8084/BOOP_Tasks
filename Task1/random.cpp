@@ -9,47 +9,48 @@
 #define RANDOM_VECTOR_SIZE 3
 #endif
 
-/* These functions are used internally to generate random elements of given type in order to fill a data structure with random elements. */
+/* These functions are used to generate random elements of given type in order to fill a data structure with random elements. */
 
-int get_random(int type)
+void set_random(int& data)
 {
-    return rand();
+    data = rand();
 }
 
-float get_random(float type)
+void set_random(float& data)
 {
-    return (float)rand() / RAND_MAX;
+    data = (float)rand() / RAND_MAX;
+}
+void set_random(double& data)
+{
+    data = (double)rand() / RAND_MAX;
 }
 
-double get_random(double type)
+void set_random(char& data)
 {
-    return (double)rand() / RAND_MAX;
+    data = rand() % 96 + 32;
 }
 
-char get_random(char type)
-{
-    return rand() % 96 + 32;
-}
-
-std::string get_random(std::string type)
+void set_random(std::string& data)
 {
     std::string str = "";
     for (int i = 0; i < RANDOM_STRING_SIZE; i++)
     {
-        char type;
-        str += get_random(type);
+        char chr;
+        set_random(chr);
+        str += chr;
     }
-    return str;
+    data = str;
 }
 
 template <typename T>
-std::vector<T> get_random(std::vector<T> type)
+void set_random(std::vector<T>& data)
 {
     std::vector<T> vect;
-    T subtype;
+    T subdata;
     for (int i = 0; i < RANDOM_VECTOR_SIZE; i++)
     {
-        vect.push_back(get_random(subtype));
+        set_random(subdata);
+        vect.push_back(subdata);
     }
-    return vect;
+    data = vect;
 }

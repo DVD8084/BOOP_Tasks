@@ -4,7 +4,7 @@
 
 using std::cout;
 
-/* These functions are used print elements of given type. */
+/* These functions are used to print elements of given type. */
 
 void print_data(int data)
 {

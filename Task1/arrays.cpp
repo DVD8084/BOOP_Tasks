@@ -19,6 +19,9 @@ private:
     T stack[MAX_ARRAY_SIZE];
     int stack_size = 0;
 public:
+    StackA()
+    {
+    }
     StackA(T data)
     {
         stack[0] = data;
@@ -59,6 +62,7 @@ public:
         }
         else
         {
+            set_empty(stack[0]);
             return stack[0];
         }
     }
@@ -70,6 +74,7 @@ public:
         }
         else
         {
+            set_empty(stack[0]);
             return stack[0];
         }
     }
@@ -78,7 +83,7 @@ public:
         stack_size = 0;
         while(stack_size < size && size < MAX_ARRAY_SIZE)
         {
-            stack[stack_size] = get_random(stack[0]);
+            set_random(stack[stack_size]);
             ++stack_size;
         }
     }
@@ -92,6 +97,9 @@ private:
     T queue[MAX_ARRAY_SIZE];
     int queue_start = 0, queue_size = 0;
 public:
+    QueueA()
+    {
+    }
     QueueA(T data)
     {
         queue[0] = data;
@@ -127,6 +135,10 @@ public:
     }
     T peek()
     {
+        if (!queue_size)
+        {
+            set_empty(queue[queue_start]);
+        }
         return queue[queue_start];
     }
     T pop()
@@ -138,6 +150,10 @@ public:
             ++queue_start;
             queue_start = (queue_start == MAX_ARRAY_SIZE) ? 0 : queue_start;
         }
+        else
+        {
+            set_empty(popped);
+        }
         return popped;
     }
     void fill_random(int size)
@@ -146,7 +162,7 @@ public:
         queue_size = 0;
         while(queue_size < size && size < MAX_ARRAY_SIZE)
         {
-            queue[queue_size] = get_random(queue[0]);
+            set_random(queue[queue_size]);
             ++queue_size;
         }
     }
@@ -160,6 +176,9 @@ private:
     T deque[MAX_ARRAY_SIZE];
     int deque_start = 0, deque_size = 0;
 public:
+    DequeA()
+    {
+    }
     DequeA(T data)
     {
         deque[0] = data;
@@ -225,6 +244,10 @@ public:
     }
     T peek_start()
     {
+        if (!deque_size)
+        {
+            set_empty(deque[deque_start]);
+        }
         return deque[deque_start];
     }
     T peek_end()
@@ -235,6 +258,7 @@ public:
         }
         else
         {
+            set_empty(deque[deque_start]);
             return deque[deque_start];
         }
     }
@@ -247,6 +271,10 @@ public:
             ++deque_start;
             deque_start = (deque_start == MAX_ARRAY_SIZE) ? 0 : deque_start;
         }
+        else
+        {
+            set_empty(popped);
+        }
         return popped;
     }
     T pop_end()
@@ -258,6 +286,7 @@ public:
         }
         else
         {
+            set_empty(deque[deque_start]);
             return deque[deque_start];
         }
     }
@@ -267,7 +296,7 @@ public:
         deque_size = 0;
         while(deque_size < size && size < MAX_ARRAY_SIZE)
         {
-            deque[deque_size] = get_random(deque[0]);
+            set_random(deque[deque_size]);
             ++deque_size;
         }
     }
