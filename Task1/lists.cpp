@@ -1,8 +1,3 @@
-#include <iostream>
-#include <cstdlib>
-
-using std::cout;
-
 /*
  * Basic stack, queue and deque (double-ended queue) classes.
  * This implementation uses linked lists.
@@ -11,9 +6,9 @@ using std::cout;
 template <typename T>
 class Node
 {
-    public:
-        T data;
-        Node* next;
+public:
+    T data;
+    Node* next;
     Node()
     {
         set_empty(this -> data);
@@ -34,10 +29,10 @@ class Node
 template <typename T>
 class DoubleNode
 {
-    public:
-        T data;
-        DoubleNode* next;
-        DoubleNode* prev;
+public:
+    T data;
+    DoubleNode* next;
+    DoubleNode* prev;
     DoubleNode()
     {
         set_empty(this -> data);
@@ -141,11 +136,11 @@ public:
             print_data(current -> data);
             if (current -> next)
             {
-                cout << " -> ";
+                print_data(" -> ");
             }
             else
             {
-                cout << '\n';
+                print_data("\n");
             }
             current = current -> next;
         }  
@@ -164,9 +159,7 @@ public:
         }
         else
         {
-            T data;
-            set_empty(data);
-            return data;
+            return get_empty<T>();
         }
     }
     T pop()
@@ -181,21 +174,17 @@ public:
         }
         else
         {
-            T data;
-            set_empty(data);
-            return data;
+            return get_empty<T>();
         }
     }
     void fill_random(int size)
     {
         delete this -> start;
-        this -> start = new Node<T>;
-        set_random(this -> start -> data);
+        this -> start = new Node<T>(get_random<T>());
         Node<T>* current = this -> start;
         for (int i = 0; i < size - 1; i++)
         {
-            Node<T>* new_node = new Node<T>;
-            set_random(new_node -> data);
+            Node<T>* new_node = new Node<T>(get_random<T>());
             current -> next = new_node;
             current = new_node;
         }
@@ -225,11 +214,11 @@ public:
             print_data(current -> data);
             if (current -> next)
             {
-                cout << " <- ";
+                print_data(" <- ");
             }
             else
             {
-                cout << '\n';
+                print_data("\n");
             }
             current = current -> next;
         }  
@@ -256,9 +245,7 @@ public:
         }
         else
         {
-            T data;
-            set_empty(data);
-            return data;
+            return get_empty<T>();
         }
     }
     T pop()
@@ -273,21 +260,17 @@ public:
         }
         else
         {
-            T data;
-            set_empty(data);
-            return data;
+            return get_empty<T>();
         }
     }
     void fill_random(int size)
     {
         delete this -> start;
-        this -> start = new Node<T>;
-        set_random(this -> start -> data);
+        this -> start = new Node<T>(get_random<T>());
         Node<T>* current = this -> start;
         for (int i = 0; i < size - 1; i++)
         {
-            Node<T>* new_node = new Node<T>;
-            set_random(new_node -> data);
+            Node<T>* new_node = new Node<T>(get_random<T>());
             current -> next = new_node;
             current = new_node;
         }
@@ -314,11 +297,11 @@ public:
             print_data(current -> data);
             if (current -> next)
             {
-                cout << " <-> ";
+                print_data(" <-> ");
             }
             else
             {
-                cout << '\n';
+                print_data("\n");
             }
             current = current -> next;
         }  
@@ -331,11 +314,11 @@ public:
             print_data(current -> data);
             if (current -> prev)
             {
-                cout << " <-> ";
+                print_data(" <-> ");
             }
             else
             {
-                cout << '\n';
+                print_data("\n");
             }
             current = current -> prev;
         }  
@@ -376,9 +359,7 @@ public:
         }
         else
         {
-            T data;
-            set_empty(data);
-            return data;
+            return get_empty<T>();
         }
     }
     T peek_end()
@@ -389,9 +370,7 @@ public:
         }
         else
         {
-            T data;
-            set_empty(data);
-            return data;
+            return get_empty<T>();
         }
     }
     T pop_start()
@@ -414,9 +393,7 @@ public:
         }
         else
         {
-            T data;
-            set_empty(data);
-            return data;
+            return get_empty<T>();
         }
     }
     T pop_end()
@@ -439,22 +416,17 @@ public:
         }
         else
         {
-            T data;
-            set_empty(data);
-            return data;
+            return get_empty<T>();
         }
     }
     void fill_random(int size)
     {
         delete this -> start;
-        this -> start = new DoubleNode<T>;
-        set_random(this -> start -> data);
+        this -> start = new DoubleNode<T>(get_random<T>());
         DoubleNode<T>* current = this -> start;
         for (int i = 0; i < size - 1; i++)
         {
-            DoubleNode<T>* new_node = new DoubleNode<T>;
-            set_random(new_node -> data);
-            new_node -> prev = current;
+            DoubleNode<T>* new_node = new DoubleNode<T>(get_random<T>(), nullptr, current);
             current -> next = new_node;
             current = new_node;
         }

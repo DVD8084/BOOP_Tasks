@@ -1,7 +1,3 @@
-#include <iostream>
-
-using std::cout;
-
 #ifndef MAX_ARRAY_SIZE
 #define MAX_ARRAY_SIZE 100
 #endif
@@ -34,11 +30,11 @@ public:
             print_data(stack[i]);
             if (i < stack_size - 1)
             {
-                cout << " <- ";
+                print_data(" <- ");
             }
             else
             {
-                cout << '\n';
+                print_data("\n");
             }
         }
     }
@@ -62,8 +58,7 @@ public:
         }
         else
         {
-            set_empty(stack[0]);
-            return stack[0];
+            return get_empty<T>();
         }
     }
     T pop()
@@ -74,8 +69,7 @@ public:
         }
         else
         {
-            set_empty(stack[0]);
-            return stack[0];
+            return get_empty<T>();
         }
     }
     void fill_random(int size)
@@ -112,11 +106,11 @@ public:
             print_data(queue[(queue_start + i) % MAX_ARRAY_SIZE]);
             if (i < queue_size - 1)
             {
-                cout << " <- ";
+                print_data(" <- ");
             }
             else
             {
-                cout << '\n';
+                print_data("\n");
             }
         }
     }
@@ -135,11 +129,14 @@ public:
     }
     T peek()
     {
-        if (!queue_size)
+        if (queue_size)
         {
-            set_empty(queue[queue_start]);
+            return queue[queue_start];
         }
-        return queue[queue_start];
+        else
+        {
+            return get_empty<T>();
+        }
     }
     T pop()
     {
@@ -191,11 +188,11 @@ public:
             print_data(deque[(deque_start + i) % MAX_ARRAY_SIZE]);
             if (i < deque_size - 1)
             {
-                cout << " <-> ";
+                print_data(" <-> ");
             }
             else
             {
-                cout << '\n';
+                print_data("\n");
             }
         }
     }
@@ -206,11 +203,11 @@ public:
             print_data(deque[(deque_start + i) % MAX_ARRAY_SIZE]);
             if (i > 0)
             {
-                cout << " <-> ";
+                print_data(" <-> ");
             }
             else
             {
-                cout << '\n';
+                print_data("\n");
             }
         }
     }
@@ -244,11 +241,14 @@ public:
     }
     T peek_start()
     {
-        if (!deque_size)
+        if (deque_size)
         {
-            set_empty(deque[deque_start]);
+            return deque[deque_start];
         }
-        return deque[deque_start];
+        else
+        {
+            return get_empty<T>();
+        }
     }
     T peek_end()
     {
@@ -258,8 +258,7 @@ public:
         }
         else
         {
-            set_empty(deque[deque_start]);
-            return deque[deque_start];
+            return get_empty<T>();
         }
     }
     T pop_start()
@@ -286,8 +285,7 @@ public:
         }
         else
         {
-            set_empty(deque[deque_start]);
-            return deque[deque_start];
+            return get_empty<T>();
         }
     }
     void fill_random(int size)

@@ -9,6 +9,8 @@
 #define RANDOM_VECTOR_SIZE 3
 #endif
 
+using std::vector;
+
 /* These functions are used to generate random elements of given type in order to fill a data structure with random elements. */
 
 void set_random(int& data)
@@ -43,9 +45,9 @@ void set_random(std::string& data)
 }
 
 template <typename T>
-void set_random(std::vector<T>& data)
+void set_random(vector<T>& data)
 {
-    std::vector<T> vect;
+    vector<T> vect;
     T subdata;
     for (int i = 0; i < RANDOM_VECTOR_SIZE; i++)
     {
@@ -53,4 +55,27 @@ void set_random(std::vector<T>& data)
         vect.push_back(subdata);
     }
     data = vect;
+}
+
+void set_random(Dice& data)
+{
+    int side_amount = (rand() % 7 + 1) * 2;
+    if (side_amount == 14)
+    {
+        side_amount = 20;
+    }
+    vector <double> probabilities (side_amount, 0);
+    for (int i = 0; i < side_amount; i++)
+    {
+        set_random(probabilities[i]);
+    }
+    data = Dice(side_amount, probabilities);
+}
+
+template <typename T>
+T get_random()
+{
+    T data;
+    set_random(data);
+    return data;
 }

@@ -1,6 +1,8 @@
 #include <vector>
 #include <string>
 
+using std::vector;
+
 /* These functions are used to generate empty elements of given type. */
 
 void set_empty(int& data)
@@ -28,8 +30,21 @@ void set_empty(std::string& data)
 }
 
 template <typename T>
-void set_empty(std::vector<T>& data)
+void set_empty(vector<T>& data)
 {
-    std::vector<T> vect;
+    vector<T> vect;
     data = vect;
+}
+
+void set_empty(Dice& data)
+{
+    data = Dice(2);
+}
+
+template <typename T>
+T get_empty()
+{
+    T data;
+    set_empty(data);
+    return data;
 }

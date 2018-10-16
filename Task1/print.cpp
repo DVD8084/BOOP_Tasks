@@ -1,4 +1,3 @@
-#include <cstdlib>
 #include <iostream>
 #include <vector>
 
@@ -34,15 +33,27 @@ void print_data(std::string data)
 template <typename T>
 void print_data(std::vector<T> data)
 {
-    cout << "[ ";
+    cout << "[";
     for (int i = 0; i < data.size(); i++)
     {
         print_data(data[i]);
         if (i < data.size() - 1)
         {
-            cout << " ; ";
+            cout << "; ";
         }
     }
-    cout << " ]";
+    cout << "]";
 }
 
+void print_data(Dice data)
+{
+    cout << "D" << data.side_amount() << "[";
+    for (int i = 0; i < data.side_amount(); i++) {
+        cout << "P(" << i << ") = " << data.probability(i);
+        if (i < data.side_amount() - 1)
+        {
+            cout << "; ";
+        }
+    }
+    cout << "]";
+}
