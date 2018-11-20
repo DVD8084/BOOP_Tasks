@@ -10,7 +10,7 @@ Create tools to compute all possible roll results (sums) for a given set of dice
 
 ## Task2
 
-Description not yet ready.
+Create a GUI application for creating and simulating various random events.
 
 ## Task3
 
