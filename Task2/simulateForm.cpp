@@ -1,16 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/*
- * File:   simulateForm.cpp
- * Author: DVD
- *
- * Created on 13 ноября 2018 г., 21:27
- */
-
 #include "simulateForm.h"
 
 using std::vector;
@@ -38,6 +25,7 @@ void simulateForm::on_pushButton_clicked() {
     if (!rows) {
         widget.buttonBox->button(QDialogButtonBox::Ok)->setEnabled(true);
     }
+    //Add new table entries for the event.
     widget.tableWidget->setRowCount(rows + 1);
     QTableWidgetItem *name = new QTableWidgetItem(events->at(widget.comboBox->currentIndex()).eventName());
     name->setFlags(name->flags() & ~Qt::ItemIsEditable);
@@ -48,8 +36,10 @@ void simulateForm::on_pushButton_clicked() {
 
 
 void simulateForm::on_tableWidget_cellChanged(int row, int col) {
+    //Check if all table entries are valid.
     for (int i = 0; i < widget.tableWidget->rowCount(); i++) {
         if (col) {
+            //Check if the amount of events is a positive integer.
             bool ok = false;
             int value = 0;
             value = widget.tableWidget->item(i, col)->text().toInt(&ok);
@@ -64,6 +54,7 @@ void simulateForm::on_tableWidget_cellChanged(int row, int col) {
 }
 
 void simulateForm::on_lineEdit_textChanged(QString text) {
+    //Check if the seed is an integer.
     bool ok = false;
     text.toInt(&ok);
     if (!ok) {
@@ -74,6 +65,7 @@ void simulateForm::on_lineEdit_textChanged(QString text) {
 }
 
 vector <RandomEvent> simulateForm::simulatedEvents() {
+    //Construct the event list from event IDs and event amounts.
     vector <RandomEvent> simulated_events;
     for (int i = 0; i < widget.tableWidget->rowCount(); i++) {
         for (int j = 0; j < widget.tableWidget->item(i, 1)->text().toInt(); j++) {
