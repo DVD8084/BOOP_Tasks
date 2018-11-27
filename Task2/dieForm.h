@@ -1,31 +1,27 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/* 
+ * File:   dieForm.h
+ * Author: DVD
+ *
+ * Created on 20 ноября 2018 г., 18:10
+ */
+
 #ifndef _DIEFORM_H
 #define _DIEFORM_H
 
 #include <QPushButton>
 #include "ui_dieForm.h"
 
-/**
- *  @brief  Used to add a "die"-type random event.
- * 
- *  Dice events are list events with a fixed name (Dn) and n even outcomes,
- *  numbered from 1 to n. They are useful for getting random integer values.
- *  Note that it is possible to get numbers from 1 to 9999 using a %dieForm,
- *  while an %addForm can only create 99 possible outcomes for an event.
- */
 class dieForm : public QDialog {
     Q_OBJECT
 public:
-    
-    /**
-     *  @brief  Creates a default %dieForm. Default amount of sides is 2.
-     */
     dieForm();
-    
     virtual ~dieForm();
-    
-    /**
-     *  @brief  Returns the amount of sides.
-     */
     int getSides();
 
 private slots:
