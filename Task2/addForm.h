@@ -1,16 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/* 
- * File:   addForm.h
- * Author: DVD
- *
- * Created on 24 октября 2018 г., 15:56
- */
-
 #ifndef _ADDFORM_H
 #define _ADDFORM_H
 
@@ -20,13 +7,35 @@
 
 using std::vector;
 
+/**
+ *  @brief  Used to add a "list"-type random event.
+ */
 class addForm : public QDialog {
     Q_OBJECT
 public:
+    
+    
+    /**
+     *  @brief  Creates a default %addForm.
+     */
     addForm();
+    
     virtual ~addForm();
+    
+    /**
+     *  @brief  Returns the name of the "list" event.
+     */
     QString getEventName();
+    
+    /**
+     *  @brief  Returns string data from a table column as a QStringList.
+     *  @param  col  The column index.
+     */
     QStringList getColumnList(int);
+   
+    /**
+     *  @brief  Returns the outcome probabilities as a vector<double>.
+     */
     vector <double> getProbabilities();
 
 private slots:

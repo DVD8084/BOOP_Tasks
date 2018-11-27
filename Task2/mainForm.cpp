@@ -1,16 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/*
- * File:   main_form.cpp
- * Author: DVD
- *
- * Created on 24 октября 2018 г., 15:23
- */
-
 #include "mainForm.h"
 #include "addForm.h"
 #include "removeForm.h"
@@ -27,6 +14,7 @@ mainForm::~mainForm() {
 }
 
 void mainForm::on_actionAdd_List_triggered() {
+    //Add a "list" event using the %addForm.
     addForm f;
     if (f.exec()) {
         eventHasBeenAdded = true;
@@ -36,6 +24,7 @@ void mainForm::on_actionAdd_List_triggered() {
 }
 
 void mainForm::on_actionAdd_Die_triggered() {
+    //Add a "die" event using the %dieForm.
     dieForm f;
     if (f.exec()) {
         eventHasBeenAdded = true;
@@ -45,6 +34,7 @@ void mainForm::on_actionAdd_Die_triggered() {
 }
 
 void mainForm::on_actionRemove_Random_Event_triggered() {
+    //Remove an event using the %removeForm.
     if (events.size()) {
         removeForm f(&events);
         if (f.exec()) {
@@ -56,6 +46,7 @@ void mainForm::on_actionRemove_Random_Event_triggered() {
 }
 
 void mainForm::on_actionSimulate_triggered() {
+    //Simulate events using the %simulateForm and output the simulation results.
     if (events.size()) {
         simulateForm f(&events);
         if (f.exec()) {
@@ -73,6 +64,7 @@ void mainForm::on_actionSimulate_triggered() {
 }
 
 void mainForm::errNothingToSimulate() {
+    //Show this error message if there are no events present and a form that requires events to be present is called.
     if (eventHasBeenAdded) {
         QMessageBox msg(QMessageBox::NoIcon, " ", "BUT THERE IS NOTHING LEFT.", QMessageBox::Yes);
         msg.exec();

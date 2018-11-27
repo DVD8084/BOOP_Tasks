@@ -1,16 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/* 
- * File:   simulateForm.h
- * Author: DVD
- *
- * Created on 13 ноября 2018 г., 21:27
- */
-
 #ifndef _SIMULATEFORM_H
 #define _SIMULATEFORM_H
 
@@ -20,14 +7,39 @@
 
 using std::vector;
 
+/**
+ *  @brief  Used to start a simulation of a group of random events.
+ */
 class simulateForm : public QDialog {
     Q_OBJECT
 public:
+    
+    /**
+     *  @brief  Creates an empty %simulateForm.
+     */
     simulateForm();
+    
+    /**
+     *  @brief  Creates a %simulateForm with a specific set of events.
+     *  @param  events  The set of events, as a vector<RandomEvent>.
+     */
     simulateForm(vector <RandomEvent>*);
+    
     virtual ~simulateForm();
+    
+    /**
+     *  @brief  Returns the events to simulate.
+     */
     vector <RandomEvent> simulatedEvents();
+    
+    /**
+     *  @brief  Returns the simulation seed.
+     */
     int seed();
+    
+    /**
+     *  @brief  Returns true if the seed has been input by user.
+     */
     bool seedPresent();
     
 private slots:
