@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>mainForm</class>
+ <widget class="QMainWindow" name="mainForm">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Random Event Simulation</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPlainTextEdit" name="plainTextEdit">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>781</width>
+      <height>551</height>
+     </rect>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuEvents">
+    <property name="title">
+     <string>Events</string>
+    </property>
+    <widget class="QMenu" name="menuAdd_Random_Event">
+     <property name="title">
+      <string>Add Random Event</string>
+     </property>
+     <addaction name="actionAdd_List"/>
+     <addaction name="actionAdd_Die"/>
+    </widget>
+    <addaction name="menuAdd_Random_Event"/>
+    <addaction name="actionRemove_Random_Event"/>
+   </widget>
+   <widget class="QMenu" name="menuSimulation">
+    <property name="title">
+     <string>Simulation</string>
+    </property>
+    <addaction name="actionSimulate"/>
+   </widget>
+   <addaction name="menuEvents"/>
+   <addaction name="menuSimulation"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionSimulate">
+   <property name="text">
+    <string>Simulate...</string>
+   </property>
+  </action>
+  <action name="actionRemove_Random_Event">
+   <property name="text">
+    <string>Remove Random Event...</string>
+   </property>
+  </action>
+  <action name="actionAdd_List">
+   <property name="text">
+    <string>Add List...</string>
+   </property>
+  </action>
+  <action name="actionAdd_Die">
+   <property name="text">
+    <string>Add Die...</string>
+   </property>
+  </action>
+  <action name="actionAdd_No_repeat_List">
+   <property name="text">
+    <string>Add No-repeat List...</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
