@@ -5,7 +5,9 @@
 #define MAX_ARRAY_SIZE 100
 #endif
 
-/* Queue based on arrays. */
+/**
+ *  @brief  Queue based on arrays.
+ */
 template <typename T>
 class QueueArray
 {

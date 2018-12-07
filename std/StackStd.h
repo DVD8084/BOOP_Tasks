@@ -5,7 +5,9 @@
 
 using std::stack;
 
-/* Stack based on std::stack. */
+/**
+ *  @brief  Stack based on std::stack.
+ */
 template <typename T>
 class StackStd {
 private:

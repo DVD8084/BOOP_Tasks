@@ -3,7 +3,9 @@
 
 #include "Node.h"
 
-/* Basic singly linked list. Used for StackList and QueueList. */
+/**
+ *  @brief  Basic singly linked list. Used for StackList and QueueList classes.
+ */
 template <typename T>
 class List
 {

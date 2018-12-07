@@ -5,7 +5,9 @@
 
 using std::queue;
 
-/* Queue based on std::queue. */
+/**
+ *  @brief  Queue based on std::queue.
+ */
 template <typename T>
 class QueueStd {
 private:

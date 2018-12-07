@@ -1,3 +1,6 @@
+/**
+ *  @brief  Creates an empty node.
+ */
 template <typename T>
 DoubleNode<T>::DoubleNode()
 {
@@ -6,6 +9,9 @@ DoubleNode<T>::DoubleNode()
     this -> prev = nullptr;
 }
 
+/**
+ *  @brief  Creates a node with specific data.
+ */
 template <typename T>
 DoubleNode<T>::DoubleNode(T data)
 {
@@ -14,6 +20,9 @@ DoubleNode<T>::DoubleNode(T data)
     this -> prev = nullptr;
 }
 
+/**
+ *  @brief  Creates a node with specific data and a pointer to the next node.
+ */
 template <typename T>
 DoubleNode<T>::DoubleNode(T data, DoubleNode* next)
 {
@@ -22,6 +31,9 @@ DoubleNode<T>::DoubleNode(T data, DoubleNode* next)
     this -> prev = nullptr;
 }
 
+/**
+ *  @brief  Creates a node with specific data and pointers to the next and previous nodes.
+ */
 template <typename T>
 DoubleNode<T>::DoubleNode(T data, DoubleNode *next, DoubleNode *prev)
 {

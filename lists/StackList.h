@@ -3,7 +3,9 @@
 
 #include "List.h"
 
-/* Stack based on linked lists. */
+/**
+ *  @brief  Stack based on linked lists.
+ */
 template <typename T>
 class StackList : public List<T>
 {

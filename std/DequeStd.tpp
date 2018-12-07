@@ -1,14 +1,23 @@
+/**
+ *  @brief  Creates an empty deque.
+ */
 template <typename T>
 DequeStd<T>::DequeStd()
 {
 }
 
+/**
+ *  @brief  Creates a deque with a specific first element.
+ */
 template <typename T>
 DequeStd<T>::DequeStd(T data)
 {
     std_deque.push_front(data);
 }
 
+/**
+ *  @brief  Prints the contents of a deque.
+ */
 template <typename T>
 void DequeStd<T>::print()
 {
@@ -26,6 +35,9 @@ void DequeStd<T>::print()
     }
 }
 
+/**
+ *  @brief  Prints the contents of a deque in reverse order.
+ */
 template <typename T>
 void DequeStd<T>::print_rev()
 {
@@ -43,6 +55,9 @@ void DequeStd<T>::print_rev()
     }
 }
 
+/**
+ *  @brief  Pushes an element to the start of the deque.
+ */
 template <typename T>
 int DequeStd<T>::push_start(T new_data)
 {
@@ -50,6 +65,9 @@ int DequeStd<T>::push_start(T new_data)
     return 1;
 }
 
+/**
+ *  @brief  Pushes an element to the end of the deque.
+ */
 template <typename T>
 int DequeStd<T>::push_end(T new_data)
 {
@@ -57,6 +75,9 @@ int DequeStd<T>::push_end(T new_data)
     return 1;
 }
 
+/**
+ *  @brief  Peeks at the element at the start of the deque.
+ */
 template <typename T>
 T DequeStd<T>::peek_start()
 {
@@ -70,6 +91,9 @@ T DequeStd<T>::peek_start()
     }
 }
 
+/**
+ *  @brief  Peeks at the element at the end of the deque.
+ */
 template <typename T>
 T DequeStd<T>::peek_end()
 {
@@ -83,6 +107,9 @@ T DequeStd<T>::peek_end()
     }
 }
 
+/**
+ *  @brief  Pops an element at the start of the deque.
+ */
 template <typename T>
 T DequeStd<T>::pop_start()
 {
@@ -98,6 +125,9 @@ T DequeStd<T>::pop_start()
     }
 }
 
+/**
+ *  @brief  Pops an element at the end of the deque.
+ */
 template <typename T>
 T DequeStd<T>::pop_end()
 {
@@ -113,6 +143,10 @@ T DequeStd<T>::pop_end()
     }
 }
 
+/**
+ *  @brief  Fills the deque with a fixed amount of random elements.
+ *  @param  size  The amount of elements.
+ */
 template <typename T>
 void DequeStd<T>::fill_random(int size)
 {

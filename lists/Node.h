@@ -1,6 +1,9 @@
 #ifndef NODE_H
 #define NODE_H
 
+/**
+ *  @brief  Singly linked list node. Used for List class.
+ */
 template <typename T>
 class Node
 {

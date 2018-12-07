@@ -3,7 +3,9 @@
 
 #include "List.h"
 
-/* Queue based on linked lists. */
+/**
+ *  @brief  Queue based on linked lists.
+ */
 template <typename T>
 class QueueList : public List<T>
 {

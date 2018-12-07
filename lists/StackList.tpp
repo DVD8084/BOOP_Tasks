@@ -1,13 +1,22 @@
+/**
+ *  @brief  Creates an empty stack.
+ */
 template <typename T>
 StackList<T>::StackList() : List<T>()
 {
 }
 
+/**
+ *  @brief  Creates a stack with a specific first element.
+ */
 template <typename T>
 StackList<T>::StackList(T data) : List<T>(data)
 {
 }
 
+/**
+ *  @brief  Prints the contents of a stack.
+ */
 template <typename T>
 void StackList<T>::print()
 {
@@ -27,6 +36,9 @@ void StackList<T>::print()
     }  
 }
 
+/**
+ *  @brief  Pushes an element to the stack.
+ */
 template <typename T>
 int StackList<T>::push(T new_data)
 {
@@ -35,6 +47,9 @@ int StackList<T>::push(T new_data)
     return 1;
 }
 
+/**
+ *  @brief  Peeks at the stack.
+ */
 template <typename T>
 T StackList<T>::peek()
 {
@@ -48,6 +63,9 @@ T StackList<T>::peek()
     }
 }
 
+/**
+ *  @brief  Pops an element from the stack.
+ */
 template <typename T>
 T StackList<T>::pop()
 {
@@ -65,6 +83,10 @@ T StackList<T>::pop()
     }
 }
 
+/**
+ *  @brief  Fills the stack with a fixed amount of random elements.
+ *  @param  size  The amount of elements.
+ */
 template <typename T>
 void StackList<T>::fill_random(int size)
 {

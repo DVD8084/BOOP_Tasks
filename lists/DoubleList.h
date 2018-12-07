@@ -3,7 +3,9 @@
 
 #include "DoubleNode.h"
 
-/* Basic doubly linked list. Used for DequeList. */
+/**
+ *  @brief  Basic doubly linked list. Used for DequeList class.
+ */
 template <typename T>
 class DoubleList
 {

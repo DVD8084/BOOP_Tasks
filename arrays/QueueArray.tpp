@@ -1,8 +1,14 @@
-template <typename T>
+/**
+ *  @brief  Creates an empty queue.
+ */
+ template <typename T>
 QueueArray<T>::QueueArray()
 {
 }
 
+/**
+ *  @brief  Creates a queue with a specific first element.
+ */
 template <typename T>
 QueueArray<T>::QueueArray(T data)
 {
@@ -10,6 +16,9 @@ QueueArray<T>::QueueArray(T data)
     queue_size = 1;
 }
 
+/**
+ *  @brief  Prints the contents of a queue.
+ */
 template <typename T>
 void QueueArray<T>::print()
 {
@@ -27,6 +36,9 @@ void QueueArray<T>::print()
     }
 }
 
+/**
+ *  @brief  Pushes an element to the queue.
+ */
 template <typename T>
 int QueueArray<T>::push(T new_data)
 {
@@ -42,6 +54,9 @@ int QueueArray<T>::push(T new_data)
     }
 }
 
+/**
+ *  @brief  Peeks at the queue.
+ */
 template <typename T>
 T QueueArray<T>::peek()
 {
@@ -55,6 +70,9 @@ T QueueArray<T>::peek()
     }
 }
 
+/**
+ *  @brief  Pops an element from the queue.
+ */
 template <typename T>
 T QueueArray<T>::pop()
 {
@@ -72,6 +90,10 @@ T QueueArray<T>::pop()
     return popped;
 }
 
+/**
+ *  @brief  Fills the queue with a fixed amount of random elements.
+ *  @param  size  The amount of elements.
+ */
 template <typename T>
 void QueueArray<T>::fill_random(int size)
 {

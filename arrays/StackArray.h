@@ -5,7 +5,9 @@
 #define MAX_ARRAY_SIZE 100
 #endif
 
-/* Stack based on arrays. */
+/**
+ *  @brief  Stack based on arrays.
+ */
 template <typename T>
 class StackArray
 {

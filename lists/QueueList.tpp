@@ -1,15 +1,24 @@
+/**
+ *  @brief  Creates an empty queue.
+ */
 template <typename T>
 QueueList<T>::QueueList() : List<T>()
 {
     this -> end = this -> start;
 }
 
+/**
+ *  @brief  Creates a queue with a specific first element.
+ */
 template <typename T>
 QueueList<T>::QueueList(T data) : List<T>(data)
 {
     this -> end = this -> start;
 }
 
+/**
+ *  @brief  Prints the contents of a queue.
+ */
 template <typename T>
 void QueueList<T>::print()
 {
@@ -29,6 +38,9 @@ void QueueList<T>::print()
     }  
 }
 
+/**
+ *  @brief  Pushes an element to the queue.
+ */
 template <typename T>
 int QueueList<T>::push(T new_data)
 {
@@ -45,6 +57,9 @@ int QueueList<T>::push(T new_data)
     return 1;
 }
 
+/**
+ *  @brief  Peeks at the queue.
+ */
 template <typename T>
 T QueueList<T>::peek()
 {
@@ -58,6 +73,9 @@ T QueueList<T>::peek()
     }
 }
 
+/**
+ *  @brief  Pops an element from the queue.
+ */
 template <typename T>
 T QueueList<T>::pop()
 {
@@ -75,6 +93,10 @@ T QueueList<T>::pop()
     }
 }
 
+/**
+ *  @brief  Fills the queue with a fixed amount of random elements.
+ *  @param  size  The amount of elements.
+ */
 template <typename T>
 void QueueList<T>::fill_random(int size)
 {

@@ -1,8 +1,14 @@
+/**
+ *  @brief  Creates an empty deque.
+ */
 template <typename T>
 DequeArray<T>::DequeArray()
 {
 }
 
+/**
+ *  @brief  Creates a deque with a specific first element.
+ */
 template <typename T>
 DequeArray<T>::DequeArray(T data)
 {
@@ -10,6 +16,9 @@ DequeArray<T>::DequeArray(T data)
     deque_size = 1;
 }
 
+/**
+ *  @brief  Prints the contents of a deque.
+ */
 template <typename T>
 void DequeArray<T>::print()
 {
@@ -27,6 +36,9 @@ void DequeArray<T>::print()
     }
 }
 
+/**
+ *  @brief  Prints the contents of a deque in reverse order.
+ */
 template <typename T>
 void DequeArray<T>::print_rev()
 {
@@ -44,6 +56,9 @@ void DequeArray<T>::print_rev()
     }
 }
 
+/**
+ *  @brief  Pushes an element to the start of the deque.
+ */
 template <typename T>
 int DequeArray<T>::push_start(T new_data)
 {
@@ -61,6 +76,9 @@ int DequeArray<T>::push_start(T new_data)
     }
 }
 
+/**
+ *  @brief  Pushes an element to the end of the deque.
+ */
 template <typename T>
 int DequeArray<T>::push_end(T new_data)
 {
@@ -76,6 +94,9 @@ int DequeArray<T>::push_end(T new_data)
     }
 }
 
+/**
+ *  @brief  Peeks at the element at the start of the deque.
+ */
 template <typename T>
 T DequeArray<T>::peek_start()
 {
@@ -89,6 +110,9 @@ T DequeArray<T>::peek_start()
     }
 }
 
+/**
+ *  @brief  Peeks at the element at the end of the deque.
+ */
 template <typename T>
 T DequeArray<T>::peek_end()
 {
@@ -102,6 +126,9 @@ T DequeArray<T>::peek_end()
     }
 }
 
+/**
+ *  @brief  Pops an element at the start of the deque.
+ */
 template <typename T>
 T DequeArray<T>::pop_start()
 {
@@ -119,6 +146,9 @@ T DequeArray<T>::pop_start()
     return popped;
 }
 
+/**
+ *  @brief  Pops an element at the end of the deque.
+ */
 template <typename T>
 T DequeArray<T>::pop_end()
 {
@@ -133,10 +163,14 @@ T DequeArray<T>::pop_end()
     }
 }
 
+/**
+ *  @brief  Fills the deque with a fixed amount of random elements.
+ *  @param  size  The amount of elements.
+ */
 template <typename T>
 void DequeArray<T>::fill_random(int size)
 {
-    deque_size = 0;
+    deque_start = 0;
     deque_size = 0;
     while(deque_size < size && size < MAX_ARRAY_SIZE)
     {

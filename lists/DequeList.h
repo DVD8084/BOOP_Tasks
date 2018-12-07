@@ -3,7 +3,9 @@
 
 #include "DoubleList.h"
 
-/* Deque (double-ended queue) based on linked lists. */
+/**
+ *  @brief  Deque (double-ended queue) based on linked lists.
+ */
 template <typename T>
 class DequeList : public DoubleList<T>
 {

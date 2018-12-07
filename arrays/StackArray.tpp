@@ -1,8 +1,14 @@
+/**
+ *  @brief  Creates an empty stack.
+ */
 template <typename T>
 StackArray<T>::StackArray()
 {
 }
 
+/**
+ *  @brief  Creates a stack with a specific first element.
+ */
 template <typename T>
 StackArray<T>::StackArray(T data)
 {
@@ -10,6 +16,9 @@ StackArray<T>::StackArray(T data)
     stack_size = 1;
 }
 
+/**
+ *  @brief  Prints the contents of a stack.
+ */
 template <typename T>
 void StackArray<T>::print()
 {
@@ -27,6 +36,9 @@ void StackArray<T>::print()
     }
 }
 
+/**
+ *  @brief  Pushes an element to the stack.
+ */
 template <typename T>
 int StackArray<T>::push(T new_data)
 {
@@ -41,6 +53,9 @@ int StackArray<T>::push(T new_data)
     }
 }
 
+/**
+ *  @brief  Peeks at the stack.
+ */
 template <typename T>
 T StackArray<T>::peek()
 {
@@ -54,6 +69,9 @@ T StackArray<T>::peek()
     }
 }
 
+/**
+ *  @brief  Pops an element from the stack.
+ */
 template <typename T>
 T StackArray<T>::pop()
 {
@@ -67,6 +85,10 @@ T StackArray<T>::pop()
     }
 }
 
+/**
+ *  @brief  Fills the stack with a fixed amount of random elements.
+ *  @param  size  The amount of elements.
+ */
 template <typename T>
 void StackArray<T>::fill_random(int size)
 {

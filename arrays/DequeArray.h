@@ -5,7 +5,9 @@
 #define MAX_ARRAY_SIZE 100
 #endif
 
-/* Deque (double-ended queue) based on arrays. */
+/**
+ *  @brief  Deque (double-ended queue) based on arrays.
+ */
 template <typename T>
 class DequeArray
 {

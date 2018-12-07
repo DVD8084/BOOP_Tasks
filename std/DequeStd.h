@@ -5,7 +5,9 @@
 
 using std::deque;
 
-/* Deque (double-ended queue) based on std::deque. */
+/**
+ *  @brief  Deque (double-ended queue) based on std::deque.
+ */
 template <typename T>
 class DequeStd {
 private:

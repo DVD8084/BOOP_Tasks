@@ -1,6 +1,9 @@
 #ifndef DOUBLENODE_H
 #define DOUBLENODE_H
 
+/**
+ *  @brief  Doubly linked list node. Used for DoubleList class.
+ */
 template <typename T>
 class DoubleNode
 {
