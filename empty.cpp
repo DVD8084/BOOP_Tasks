@@ -2,7 +2,17 @@
 
 using std::vector;
 
-/* These functions are used to generate empty elements of given type. */
+/**
+ *  These functions are used to set the supported types to respective empty values.
+ *  The values are:
+ *  (int) 0.
+ *  (float) 0.
+ *  (double) 0.
+ *  (char) NULL character.
+ *  (string) Empty string.
+ *  (vector) Default vector.
+ *  (Dice) Fair coin.
+ */
 
 void set_empty(int& data)
 {

@@ -7,6 +7,7 @@
 #include "arrays.h"
 #include "dice.h"
 #include "lists.h"
+#include "print.h"
 #include "std.h"
 
 using std::vector;

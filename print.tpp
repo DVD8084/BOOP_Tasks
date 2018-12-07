@@ -1,4 +1,7 @@
-template <typename T>
+/**
+ *  @brief  Prints the contents of %std::vector.
+ */
+ template <typename T>
 void print_data(std::vector<T> data)
 {
     cout << "[";

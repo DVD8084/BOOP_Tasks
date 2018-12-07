@@ -1,6 +1,11 @@
 using std::vector;
 using std::cout;
 
+/**
+ *  @brief  Function used to test stack and queue classes.
+ *  @param  structure  A (preferably empty) stack or queue object.
+ *  @param  type  Data of any supported type.
+ */
 template <typename U, typename V>
 void stack_queue_test(U structure, V type)
 {
@@ -41,6 +46,11 @@ void stack_queue_test(U structure, V type)
     return;
 }
 
+/**
+ *  @brief  Function used to test deque classes.
+ *  @param  structure  A (preferably empty) deque object.
+ *  @param  type  Data of any supported type.
+ */
 template <typename U, typename V>
 void deque_test(U structure, V type)
 {
@@ -105,6 +115,12 @@ void deque_test(U structure, V type)
 }
 
 
+/**
+ *  @brief  Function used to test any data structure class included in the task.
+ *  @param  element_type  Data of any supported type.
+ *  @param  structure_type  Type of the tested structure (STACK, QUEUE, DEQUE).
+ *  @param  implementation  Implementation of the tested structure (ARRAY, LIST, STDLIB).
+ */
 template <typename T>
 void structure_test(T element_type, int structure_type, int implementation)
 {

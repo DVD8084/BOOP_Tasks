@@ -2,8 +2,18 @@
 
 using std::vector;
 
-/* These functions are used to generate random elements of given type in order to fill a data structure with random elements. */
-
+/**
+ *  These functions are used to set the supported types to respective random values.
+ *  The values are:
+ *  (int) Integer from 0 to RAND_MAX.
+ *  (float) Float from 0 to 1.
+ *  (double) Double from 0 to 1.
+ *  (char) Non-control ASCII character.
+ *  (string) RANDOM_STRING_SIZE non-control ASCII characters.
+ *  (vector) RANDOM_VECTOR_SIZE vector elements.
+ *  (Dice) Uneven die with 2, 4, 6, 8, 10, 12 or 20 sides.
+ */
+ 
 void set_random(int& data)
 {
     data = rand();

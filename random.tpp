@@ -1,5 +1,9 @@
 using std::vector;
 
+/**
+ *  @brief  Initializes %std::vector as a set of random values. 
+ *  @param  data  The initialized %std::vector.
+ */
 template <typename T>
 void set_random(vector<T>& data)
 {
@@ -13,6 +17,9 @@ void set_random(vector<T>& data)
     data = vect;
 }
 
+/**
+ *  @brief  Returns a random value for any supported type.
+ */
 template <typename T>
 T get_random()
 {

@@ -8,6 +8,12 @@
 using std::vector;
 using std::cout;
 
+/**
+ *  @brief  Class used to store unfair dice.
+ *  
+ *  Stores information about the amount of sides and
+ *  the probabilities of each side being the roll result.
+ */
 class Dice
 {
 private:

@@ -3,6 +3,10 @@
 using std::vector;
 using std::cout;
 
+/**
+ *  @brief  Internally used to make the sum of all probabilities
+ *  equal to 1 when creating a die with an uneven distribution.
+ */
 void Dice::normalize()
 {
     double probabilities_sum = 0;
@@ -25,6 +29,10 @@ void Dice::normalize()
         }
     }
 }
+
+/**
+ *  @brief  Creates a fair coin (2-sided die).
+ */
 Dice::Dice() 
 {
     probabilities.clear();
@@ -33,7 +41,12 @@ Dice::Dice()
     {
         probabilities.push_back(0.5);
     }
-}    
+}
+
+/**
+ *  @brief  Creates a fair die with a fixed amount of sides.
+ *  @param  sides  The side amount.
+ */
 Dice::Dice(int sides) 
 {
     probabilities.clear();
@@ -47,6 +60,12 @@ Dice::Dice(int sides)
         probabilities.push_back((double)1 / sides);
     }
 }
+
+/**
+ *  @brief  Creates an unfair die with a fixed amount of sides.
+ *  @param  sides  The side amount.
+ *  @param  probabilities  The probability distribution as a vector<double>.
+ */
 Dice::Dice(int sides, vector<double> probabilities) 
 {
     if (sides < 1)
@@ -67,10 +86,19 @@ Dice::Dice(int sides, vector<double> probabilities)
     }
     normalize();
 }
+
+/**
+ *  @brief  Returns the amount of sides.
+ */
 int Dice::side_amount()
 {
     return sides;
 }
+
+/**
+ *  @brief  Returns the probability of a roll result.
+ *  @param  i  The roll result index (starting from 0).
+ */
 double Dice::probability(int i)
 {
     if (i >= 0 && i < sides)
@@ -83,6 +111,10 @@ double Dice::probability(int i)
     }
 }
 
+/**
+ *  @brief  Returns all possible consequences for a dice set.
+ *  @param  dice_set  The dice set, as a vector<Dice>.
+ */
 vector <vector <int> > get_roll_consequences(vector <Dice> dice_set)
 {
     vector <vector <int> > roll_consequences;
@@ -109,6 +141,10 @@ vector <vector <int> > get_roll_consequences(vector <Dice> dice_set)
     return roll_consequences;
 }
 
+/**
+ *  @brief  Returns all possible consequences for a dice set, sorted by total score.
+ *  @param  dice_set  The dice set, as a vector<Dice>.
+ */
 vector <vector <vector <int> > > get_sorted_consequences(vector <Dice> dice_set)
 {
     vector <vector <int> > roll_consequences = get_roll_consequences(dice_set);
@@ -131,6 +167,10 @@ vector <vector <vector <int> > > get_sorted_consequences(vector <Dice> dice_set)
     return sorted_consequences;
 }
 
+/**
+ *  @brief  Prints all possible scores for a given dice set, along with their probabilities.
+ *  @param  dice_set  The dice set, as a vector<Dice>.
+ */
 void print_probabilities(vector <Dice> dice_set)
 {
     int dice_amount = dice_set.size();

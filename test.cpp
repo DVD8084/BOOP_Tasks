@@ -3,6 +3,11 @@
 using std::vector;
 using std::cout;
 
+/**
+ *  @brief  Function used to test the Dice class.
+ *  Conducts two tests: one with a set of two regular D6, and another
+ *  with a set of three unfair coins (p(0) = 1/3, p(1) = 2/3).
+ */
 void dice_test()
 {
     vector <Dice> dice_set;
@@ -22,7 +27,7 @@ void dice_test()
     }
     cout << "[SET 1: 2 REGULAR DICE]\n";
     print_probabilities(dice_set);
-    cout << "\n[SET 2: 3 UNFAIR COINS]\n[ p(0) = 1/3, p(1) = 2/3]\n";
+    cout << "\n[SET 2: 3 UNFAIR COINS]\n[p(0) = 1/3, p(1) = 2/3]\n";
     print_probabilities(coin_set);
     
 }
