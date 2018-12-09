@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>mainForm</class>
+ <widget class="QMainWindow" name="mainForm">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Random Event Simulation</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPlainTextEdit" name="resultInfo">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>371</width>
+      <height>551</height>
+     </rect>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="probabilityTable">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>40</y>
+      <width>401</width>
+      <height>261</height>
+     </rect>
+    </property>
+    <attribute name="horizontalHeaderDefaultSectionSize">
+     <number>90</number>
+    </attribute>
+    <column>
+     <property name="text">
+      <string>Name</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Expected</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Actual</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Difference</string>
+     </property>
+    </column>
+   </widget>
+   <widget class="QComboBox" name="eventID">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>10</y>
+      <width>191</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelEventID">
+    <property name="geometry">
+     <rect>
+      <x>450</x>
+      <y>10</y>
+      <width>81</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Show stats for:</string>
+    </property>
+   </widget>
+   <widget class="QChartView" name="probabilityChart">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>310</y>
+      <width>401</width>
+      <height>251</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuEvents">
+    <property name="title">
+     <string>Events</string>
+    </property>
+    <widget class="QMenu" name="menuAdd_Random_Event">
+     <property name="title">
+      <string>Add Random Event</string>
+     </property>
+     <addaction name="actionAdd_List"/>
+     <addaction name="actionAdd_Die"/>
+    </widget>
+    <addaction name="menuAdd_Random_Event"/>
+    <addaction name="actionRemove_Random_Event"/>
+   </widget>
+   <widget class="QMenu" name="menuSimulation">
+    <property name="title">
+     <string>Simulation</string>
+    </property>
+    <addaction name="actionSimulate"/>
+   </widget>
+   <addaction name="menuEvents"/>
+   <addaction name="menuSimulation"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionSimulate">
+   <property name="text">
+    <string>Simulate...</string>
+   </property>
+  </action>
+  <action name="actionRemove_Random_Event">
+   <property name="text">
+    <string>Remove Random Event...</string>
+   </property>
+  </action>
+  <action name="actionAdd_List">
+   <property name="text">
+    <string>Add List...</string>
+   </property>
+  </action>
+  <action name="actionAdd_Die">
+   <property name="text">
+    <string>Add Die...</string>
+   </property>
+  </action>
+  <action name="actionAdd_No_repeat_List">
+   <property name="text">
+    <string>Add No-repeat List...</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QChartView</class>
+   <extends>QGraphicsView</extends>
+   <header>QtCharts\QtCharts</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
