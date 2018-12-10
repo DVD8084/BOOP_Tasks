@@ -26,14 +26,17 @@ simulateForm::simulateForm(vector <RandomEvent>* events) : simulateForm::simulat
 simulateForm::~simulateForm() {
 }
 
+/**
+ *  @brief  Add the currently chosen event to the simulated events table.
+ */
 void simulateForm::on_addEvent_clicked() {
-    //Add event to the simulated events list.
+    /* Add event to the simulated events list. */
     simulated_ids.push_back(widget.eventID->currentIndex());
     int rows = widget.eventAmounts->rowCount();
     if (!rows) {
         widget.buttonBox->button(QDialogButtonBox::Ok)->setEnabled(true);
     }
-    //Add new table entries for the event.
+    /* Add new table entries for the event. */
     widget.eventAmounts->setRowCount(rows + 1);
     QTableWidgetItem *name = new QTableWidgetItem(events->at(widget.eventID->currentIndex()).eventName());
     name->setFlags(name->flags() & ~Qt::ItemIsEditable);
@@ -42,12 +45,15 @@ void simulateForm::on_addEvent_clicked() {
     widget.eventAmounts->setItem(rows, 1, amount);
 }
 
-
+/**
+ *  @brief  Check if all table entries are valid.
+ * 
+ *  If any event amount isn't a positive integer, the "Ok" button is disabled.
+ */
 void simulateForm::on_eventAmounts_cellChanged(int row, int col) {
-    //Check if all table entries are valid.
     for (int i = 0; i < widget.eventAmounts->rowCount(); i++) {
         if (col) {
-            //Check if the amount of events is a positive integer.
+            /* Check if the amount of events is a positive integer. */
             bool ok = false;
             int value = 0;
             value = widget.eventAmounts->item(i, col)->text().toInt(&ok);
@@ -61,8 +67,12 @@ void simulateForm::on_eventAmounts_cellChanged(int row, int col) {
     }
 }
 
+/**
+ *  @brief  Check if the seed is an integer.
+ * 
+ *  If the seed isn't an integer, the "Ok" button is disabled.
+ */
 void simulateForm::on_seed_textChanged(QString text) {
-    //Check if the seed is an integer.
     bool ok = false;
     text.toInt(&ok);
     if (!ok) {
@@ -76,7 +86,7 @@ void simulateForm::on_seed_textChanged(QString text) {
  *  @brief  Returns the events to simulate.
  */
 vector <RandomEvent> simulateForm::simulatedEvents() {
-    //Construct the event vector from event IDs.
+    /* Construct the event vector from event IDs. */
     vector <RandomEvent> simulated_events;
     for (int i = 0; i < widget.eventAmounts->rowCount(); i++) {
         simulated_events.push_back(events->at(simulated_ids[i]));
@@ -88,7 +98,7 @@ vector <RandomEvent> simulateForm::simulatedEvents() {
  *  @brief  Returns the amounts of events to simulate.
  */
 vector <int> simulateForm::simulatedEventAmounts() {
-    //Construct the amount vector from event amounts.
+    /* Construct the amount vector from event amounts. */
     vector <int> amounts;
     for (int i = 0; i < widget.eventAmounts->rowCount(); i++) {
         amounts.push_back(widget.eventAmounts->item(i, 1)->text().toInt());

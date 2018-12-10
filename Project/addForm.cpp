@@ -30,18 +30,18 @@ void addForm::on_name_textChanged(QString text) {
  */
 void addForm::on_resultAmount_valueChanged(int val) {
     if (widget.results->rowCount() < val) {
-        //Add default entries for all newly created outcomes.
+        /* Add default entries for all newly created outcomes. */
         for (int i = widget.results->rowCount(); i < val; i++) {
             widget.results->setRowCount(i + 1);
             if (!widget.results->item(i, 0)) {
-                QTableWidgetItem *name = new QTableWidgetItem("Item " + QString::number(i + 1)); //default name
+                QTableWidgetItem *name = new QTableWidgetItem("Item " + QString::number(i + 1));
                 widget.results->setItem(i, 0, name);
-                QTableWidgetItem *prob = new QTableWidgetItem("1"); //default probability
+                QTableWidgetItem *prob = new QTableWidgetItem("1");
                 widget.results->setItem(i, 1, prob);
             }
         }
     } else {
-        //Remove old entries.
+        /* Remove old entries. */
         widget.results->setRowCount(val);
     }
 }
@@ -55,7 +55,7 @@ void addForm::on_resultAmount_valueChanged(int val) {
 void addForm::on_results_cellChanged(int row, int col) {
     for (int i = 0; i < widget.results->rowCount(); i++) {
         if (col) {
-            //Probability check, should be a positive double.
+            /* Probability check, should be a positive double. */
             bool ok = false;
             double value = 0;
             value = widget.results->item(i, col)->text().toDouble(&ok);
@@ -66,7 +66,7 @@ void addForm::on_results_cellChanged(int row, int col) {
                 widget.buttonBox->button(QDialogButtonBox::Ok)->setEnabled(true);
             }
         } else {
-            //Outcome name check, should not be empty.
+            /* Outcome name check, should not be empty. */
             QString value = widget.results->item(i, col)->text();
             if (value.isEmpty()) {
                 widget.buttonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
